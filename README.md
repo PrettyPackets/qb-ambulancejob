@@ -24,6 +24,12 @@ This was made for a server im working on, but I decided to make it noob friendly
 - ❌ **Removed bed targeting**
 - 🎮 **Minigames added** for reviving & healing (optional via config)
 
+
+## 💬 Stay Connected!
+For the latest tea ☕ on updates, sneak peeks 👀, and to hang out with other cuties building PrettyPacketAC, join our **official Discord**! 🎀✨
+
+👉 [Join our Discord! 💬](https://discord.gg/XFwW3U42rK)
+
 ---
 
 ## 📂 Installation
