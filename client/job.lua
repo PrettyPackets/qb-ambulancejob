@@ -237,7 +237,7 @@ end)
 RegisterNetEvent('hospital:client:RevivePlayer', function()
 	local hasItem = false
 	if Config.PrettyLib then
-		hasItem = PrettyLib.HasItem('firstaid', 1)
+		hasItem = PrettyLib.Inventory.HasItem('firstaid', 1)
 	else
 		hasItem = QBCore.Functions.HasItem('firstaid')
 	end
@@ -301,7 +301,7 @@ end)
 RegisterNetEvent('hospital:client:TreatWounds', function()
 	local hasItem = false
 	if Config.PrettyLib then
-		hasItem = PrettyLib.HasItem('bandage', 1)
+		hasItem = PrettyLib.Inventory.HasItem('bandage', 1)
 	else
 		hasItem = QBCore.Functions.HasItem('bandage')
 	end

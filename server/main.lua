@@ -182,7 +182,7 @@ RegisterNetEvent('hospital:server:TreatWounds', function(playerId)
 	if Patient then
 		if Player.PlayerData.job.name == 'ambulance' then
 			if Config.PrettyLib then
-				PrettyLib.RemoveItem(src, 'bandage', 1, 'hospital:server:TreatWounds')
+				PrettyLib.Inventory.RemoveItem(src, 'bandage', 1, 'hospital:server:TreatWounds')
 			else
 				exports['qb-inventory']:RemoveItem(src, 'bandage', 1, false, 'hospital:server:TreatWounds')
 				TriggerClientEvent('qb-inventory:client:ItemBox', src, QBCore.Shared.Items['bandage'], 'remove')
@@ -226,8 +226,8 @@ RegisterNetEvent('hospital:server:RevivePlayer', function(playerId, isOldMan)
 	local oldMan = isOldMan or false
 	if Patient then
 		if Config.PrettyLib then
-			if Player.PlayerData.job.name == 'ambulance' and PrettyLib.HasItem(src, 'firstaid', 1) then
-				PrettyLib.RemoveItem(src, 'firstaid', 1, 'hospital:server:RevivePlayer')
+			if Player.PlayerData.job.name == 'ambulance' and PrettyLib.Inventory.HasItem(src, 'firstaid', 1) then
+				PrettyLib.Inventory.RemoveItem(src, 'firstaid', 1, 'hospital:server:RevivePlayer')
 				TriggerClientEvent('hospital:client:Revive', Patient.PlayerData.source)
 			end
 		else
@@ -279,7 +279,7 @@ RegisterNetEvent('hospital:server:removeBandage', function()
 	local Player = QBCore.Functions.GetPlayer(source)
 	if not Player then return end
 	if Config.PrettyLib then 
-		PrettyLib.RemoveItem(src, 'bandage', 1, 'hospital:server:removeBandage')
+		PrettyLib.Inventory.RemoveItem(src, 'bandage', 1, 'hospital:server:removeBandage')
 	else
 		exports['qb-inventory']:RemoveItem(source, 'bandage', 1, false, 'hospital:server:removeBandage')
 	end
@@ -289,7 +289,7 @@ RegisterNetEvent('hospital:server:removeIfaks', function()
 	local Player = QBCore.Functions.GetPlayer(source)
 	if not Player then return end
 	if Config.PrettyLib then
-		PrettyLib.RemoveItem(src, 'ifaks', 1, 'hospital:server:removeIfaks')
+		PrettyLib.Inventory.RemoveItem(src, 'ifaks', 1, 'hospital:server:removeIfaks')
 	else
 		exports['qb-inventory']:RemoveItem(source, 'ifaks', 1, false, 'hospital:server:removeIfaks')
 	end
@@ -300,7 +300,7 @@ RegisterNetEvent('hospital:server:removePainkillers', function()
 	local Player = QBCore.Functions.GetPlayer(source)
 	if not Player then return end
 	if Config.PrettyLib then
-		PrettyLib.RemoveItem(src, 'painkillers', 1, 'hospital:server:removePainkillers')
+		PrettyLib.Inventory.RemoveItem(src, 'painkillers', 1, 'hospital:server:removePainkillers')
 	else
 		exports['qb-inventory']:RemoveItem(source, 'painkillers', 1, false, 'hospital:server:removePainkillers')
 	end
@@ -324,7 +324,7 @@ RegisterNetEvent('qb-ambulancejob:server:stash', function()
 	local citizenId = Player.PlayerData.citizenid
 	local stashName = 'ambulancestash_' .. citizenId
 	if Config.PrettyLib then
-		PrettyLib.DynamicStash(src, stashName, Config.PrettyLibStash.slots, Config.PrettyLibStash.weight, Config.PrettyLibStash.label)
+		PrettyLib.Inventory.DynamicStash(src, stashName, Config.PrettyLibStash.slots, Config.PrettyLibStash.weight, Config.PrettyLibStash.label)
 	else
 		exports['qb-inventory']:OpenInventory(src, stashName)
 	end
@@ -335,7 +335,7 @@ RegisterNetEvent('qb-ambulancejob:server:shop', function()
 	local Player = QBCore.Functions.GetPlayer(src)
 	if not Player then return end
 	if Config.PrettyLib then
-		PrettyLib.DynamicShop(src, "EMS-Armory", Config.PrettyLibShop, "EMS-Armory")
+		PrettyLib.Inventory.DynamicShop(src, "EMS-Armory", Config.PrettyLibShop, "EMS-Armory")
 		TriggerClientEvent("PrettyLib:Client:OpenOxShop", src, "EMS-Armory")
 	end
 end)
